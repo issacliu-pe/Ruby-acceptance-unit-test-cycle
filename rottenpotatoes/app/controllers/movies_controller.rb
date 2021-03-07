@@ -7,7 +7,37 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    #@movies = Movie.all
+    
+    if params[:ratings]
+      session[:ratings] = params[:ratings]
+    elsif session[:ratings].nil?
+      session[:ratings] = Hash.new
+    end
+    
+    if params[:sort_by]
+      session[:sort_by] = params[:sort_by]
+    elsif session[:sort_by].nil?
+      session[:sort_by] = nil
+    end
+    
+    if session[:sort_by] == 'title'
+      @title_active = 'hilite bg-warning'
+    else
+      @title_active = ''
+    end
+    
+    if session[:sort_by] == 'release_date'
+      @release_date_active = 'hilite bg-warning'
+    else
+      @release_date_active = ''
+    end
+
+    @all_ratings = Movie.all_ratings
+    @sort_by = session[:sort_by]
+    @ratings_to_show = session[:ratings]
+    @movies = Movie.with_ratings(@ratings_to_show.keys, @sort_by)
+    
   end
 
   def new
@@ -38,10 +68,21 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def similar_movies
+    @movie = Movie.find(params[:id])
+    if @movie.director.blank?
+      flash[:notice] = "'#{@movie.title}' has no director info"
+      redirect_to movies_path
+    else
+      @movies = Movie.same_directors(@movie.director)
+    end
+  end
+  
   private
   # Making "internal" methods private is not required, but is a common practice.
   # This helps make clear which methods respond to requests, and which ones do not.
   def movie_params
-    params.require(:movie).permit(:title, :rating, :description, :release_date)
+    params.require(:movie).permit(:title, :rating, :description, :release_date, :director)
   end
+  
 end
