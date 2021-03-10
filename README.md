@@ -1,5 +1,5 @@
 Cucumber feature and Rspec Coverage
-![alt Cucumber feature and Rspec Coverage](https://github.com/issacliu-pe/hw-acceptance-unit-test-cycle/bolb/master/report_aggregated_coverage.png)
+![alt Cucumber feature and Rspec Coverage](https://github.com/issacliu-pe/hw-acceptance-unit-test-cycle/blob/master/report_aggregated_coverage.PNG)
 
 Acceptance-Unit Test Cycle
 ===
