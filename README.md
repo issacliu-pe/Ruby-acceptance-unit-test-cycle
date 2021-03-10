@@ -1,3 +1,6 @@
+Cucumber feature and Rspec Coverage
+![alt Aggregated Coverage](https://github.com/issacliu-pe/hw-acceptance-unit-test-cycle/blob/master/report_aggregated_coverage.png)
+
 Acceptance-Unit Test Cycle
 ===
 
