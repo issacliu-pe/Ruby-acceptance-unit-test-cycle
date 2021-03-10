@@ -1,0 +1,9 @@
+Github:
+https://github.com/issacliu-pe/hw-acceptance-unit-test-cycle
+
+log files loactions:
+Cucumber tests
+https://github.com/issacliu-pe/hw-acceptance-unit-test-cycle/blob/master/rottenpotatoes/logfile_cucumber.txt
+
+Rspec tests
+https://github.com/issacliu-pe/hw-acceptance-unit-test-cycle/blob/master/rottenpotatoes/logfile_rspec.txt
